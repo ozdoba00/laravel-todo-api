@@ -22,17 +22,29 @@ class TaskController extends Controller
 
     public function addTask(TaskRequest $request){
 
-
-
         $task = new Task();
 
         $task->user_id = Auth::user()->id;
         $task->content = $request->content;
-
+        $task->done = false;
         $task->save();
 
 
         return ['success'=>"true", 'message'=>"Task added successfully"];
 
+    }
+
+    public function update(Request $request, $id){
+
+
+        $task = Task::find($id);
+
+        $task->done = $request->done;
+        $task->save();
+    }
+
+    public function destroy($id){
+
+        return Task::destroy($id);
     }
 }

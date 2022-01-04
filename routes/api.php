@@ -38,4 +38,6 @@ Route::group([
 ], function($router){
     Route::get("/tasks", [TaskController::class, 'getUsersTasks']);
     Route::post('/add-task', [TaskController::class, 'addTask']);
+    Route::delete('/task/{id}', [TaskController::class, 'destroy']);
+    Route::put('/task/{id}',[TaskController::class, 'update']);
 });
