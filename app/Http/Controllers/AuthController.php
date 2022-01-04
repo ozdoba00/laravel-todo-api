@@ -98,6 +98,8 @@ class AuthController extends Controller
         return response()->json(auth()->user());
     }
 
+
+
     /**
      * Get the token array structure.
      *
